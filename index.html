@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃什么</title>
+    <style>
+        #content{
+            width: 600px;
+            height: 400px;
+            background: rgb(205, 255, 223);
+            margin: 100px auto;
+            text-align: center;
+            position: relative;
+            line-height: 400px;
+            color: rgb(43, 150, 226);
+            font-size: 80px;
+        }   
+        #start{
+            background: #ccc;
+            width: 200px;
+            height: 100px;
+            font-size: 40px;
+            color:red;
+            border-radius: 12px;
+            position: absolute;
+            margin-left: -90px;
+            left: 50%;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="content">
+        <span id="ts">
+            点击开始
+        </span>
+    </div>
+    <button id="start">
+        开始
+    </button>
+    <script>
+        var arr = ["麻辣烫","自助餐","湖南菜","麻辣香锅","关东煮","汤饭","手撕鸡","兰州拉面","螺蛳粉","重庆小面","肠粉"];
+        var $start = document.getElementById('start');
+        var $content = document.getElementById('content');
+        var $ts = document.getElementById('ts');
+        var timer;
+        var testNum = true;
+        $start.onclick = function(){
+            if(testNum){
+                print();
+                $start.innerHTML = '结束';
+                testNum = false;
+            }
+            else{
+                stop();
+                start.innerHTML = '开始';
+                testNum = true;
+            }
+        }
+        function print(){
+                timer = setInterval(function(){
+                    var num = random(arr.length - 1);
+                    $ts.innerHTML = arr[num];
+                },50)
+        }
+        function stop(){
+                clearInterval(timer);      
+        }
+        function random(b){
+            var randomNum = Math.round(Math.random() *b);
+            return randomNum;
+        }        
+    </script>
+</body>
+</html>
